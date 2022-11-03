@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Teko&display=swap"
+            rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <title>Reservation page</title>
+
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            body {
+                box-sizing: border-box;
+                font-size: 10px;
+                font-family: 'Roboto', sans-serif;
+            }
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+
+            .main-container {
+                width: 100%;
+                height: 100vh;
+                /* border: 1px solid red; */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                position: relative;
+                background-image: url(reservation-background.jpg);
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+
+            .navbar {
+                /* border: 1px solid green; */
+                display: flex;
+                height: 10%;
+                width: 100%;
+                align-items: center;
+                top: 0;
+                position: fixed;
+                z-index: 1;
+                background-color: transparent;
+                /* border-bottom: 1px solid white; */
+            }
+
+            .navbar-logo-container {
+                display: flex;
+                align-items: center;
+                /* border: 1px solid white; */
+                height: 100%;
+                margin-left: 1rem;
+                width: 10%;
+                justify-content: start;
+                font-family: 'Rajdhani';
+                font-size: 1.5rem;
+                /* -webkit-text-stroke: 1px rgb(255, 255, 255); */
+                -webkit-text-fill-color: white;
+                text-decoration: overline;
+            }
+
+
+
+            .nav-li-container li:hover {
+                border-bottom: 1px solid white;
+
+            }
+
+            .nav-li-container :nth-child(7) {
+                border: 1px solid white;
+                padding: 0 0.8rem;
+            }
+
+            .nav-li-container :nth-child(7):hover {
+                background-color: rgb(255, 255, 255, 0.2);
+                cursor: pointer;
+            }
+
+
+            .reservation-form-container {
+                /* border: 1px solid white; */
+                width: 55%;
+                height: 75%;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                margin-top: 3.5rem;
+                background-color: rgba(0, 0, 0, 0.7);
+                /* justify-content: center; */
+                /* align-items : center; */
+
+            }
+
+            #reservation-header {
+                /* border: 1px solid white; */
+                color: white;
+                width: 100%;
+                height: 15%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 0.5rem;
+            }
+
+            #reservation-letter-one {
+                stroke-dasharray: 130px;
+                stroke-dashoffset: 130px;
+                animation: heading_animation 3s linear forwards 0.5s;
+            }
+
+            #reservation-letter-one:hover {
+                animation: reverse;
+            }
+
+            #reservation-letter-two {
+                stroke-dasharray: 62px;
+                stroke-dashoffset: 62px;
+                animation: heading_animation 3s linear forwards 0.5s;
+            }
+
+            #reservation-letter-two:hover {
+                animation: reverse;
+            }
+
+            #reservation-letter-three {
+                stroke-dasharray: 130px;
+                stroke-dashoffset: 130px;
+                animation: heading_animation 3s linear forwards 0.5s;
+            }
+
+            #reservation-letter-three:hover {
+                animation: reverse;
+            }
+
+            #reservation-letter-four {
+                stroke-dasharray: 62px;
+                stroke-dashoffset: 62px;
+                animation: heading_animation 3s linear forwards 0.5s;
+            }
+
+            #reservation-letter-four:hover {
+                animation: reverse;
+            }
+
+            #reservation-letter-five {
+                stroke-dasharray: 130px;
+                stroke-dashoffset: 130px;
+                animation: heading_animation 3s linear forwards 0.5s;
+            }
+
+            #reservation-letter-five:hover {
+                animation: reverse;
+            }
+
+            #reservation-letter-six {
+                stroke-dasharray: 65px;
+                stroke-dashoffset: 65px;
+                animation: heading_animation 3s linear forwards 0.5s;
+            }
+
+            #reservation-letter-six:hover {
+                animation: reverse;
+            }
+
+            #reservation-letter-seven {
+                stroke-dasharray: 65px;
+                stroke-dashoffset: 65px;
+                animation: heading_animation 3s linear forwards 0.5s;
+            }
+
+            #reservation-letter-seven:hover {
+                animation: reverse;
+            }
+
+            #reservation-letter-eight {
+                stroke-dasharray: 64px;
+                stroke-dashoffset: 64px;
+                animation: heading_animation 3s linear forwards 0.5s;
+            }
+
+            #reservation-letter-eight:hover {
+                animation: reverse;
+            }
+
+            #reservation-letter-nine {
+                stroke-dasharray: 70px;
+                stroke-dashoffset: 70px;
+                animation: heading_animation 3s linear forwards 0.5s;
+            }
+
+            #reservation-letter-nine:hover {
+                animation: reverse;
+            }
+
+            #reservation-letter-ten {
+                stroke-dasharray: 80px;
+                stroke-dashoffset: 80px;
+                animation: heading_animation 3s linear forwards 0.5s;
+            }
+
+            #reservation-letter-ten:hover {
+                animation: reverse;
+            }
+
+            #reservation-letter-eleven {
+                stroke-dasharray: 150px;
+                stroke-dashoffset: 150px;
+                animation: heading_animation 3s linear forwards 0.5s;
+            }
+
+            #reservation-letter-eleven:hover {
+                animation: reverse;
+            }
+
+
+            #reservation-form {
+                /* border: 1px solid white; */
+                width: 100%;
+                height: 85%;
+                display: flex;
+                flex-direction: column;
+                gap: 1.4rem;
+                /* justify-content: center; */
+                align-items: center;
+                color: white;
+            }
+
+            #reservation-form div {
+                border: 1px solid white;
+                width: 90%;
+                display: flex;
+                justify-content: center;
+            }
+
+            #reservation-form div:nth-child(4) {
+                border: none;
+            }
+
+            #reservation-form div:nth-child(6) {
+                border: none;
+            }
+
+            .input-container {
+                position: relative;
+                display: flex;
+                align-items: center;
+            }
+
+            .input-container span {
+                color: rgba(253, 253, 253, 0.507);
+                position: absolute;
+                left: 0.5rem;
+                pointer-events: none;
+                font-size: 0.7rem;
+            }
+
+            .input-container input:valid~span,
+            .input-container input:focus~span {
+                color: black;
+                transform: translateX(10px) translateY(-17px);
+                font-size: 0.6rem;
+                font-weight: bolder;
+                background-color: white;
+                z-index: 1;
+                padding: 0 10px;
+            }
+
+
+
+            #fullName-container {
+                margin-top: 1rem;
+            }
+
+            .input-container input {
+                width: 100%;
+                height: 2rem;
+                border-radius: 0;
+                background-color: transparent;
+                outline: none;
+                border-style: none;
+                padding-left: 10px;
+                color: white;
+                transition: 1s;
+            }
+
+            #time-date-persons-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 3rem;
+            }
+
+            #time-date-persons-container div {
+                width: auto;
+                display: flex;
+                align-items: center;
+                font-size: 0.7rem;
+                border: none;
+            }
+
+            input[type="time"],
+            [type="date"],
+            select {
+                height: 2rem;
+                border-radius: 0;
+                background-color: transparent;
+                color: white;
+                border-style: none;
+                border: 1px solid white;
+            }
+
+            input[type="time"]::-webkit-calendar-picker-indicator {
+                filter: invert(0.9);
+            }
+
+            input[type="date"]::-webkit-calendar-picker-indicator {
+                filter: invert(0.9);
+            }
+
+            option {
+                color: white;
+                background-color: black;
+            }
+
+    
+            #comment {
+                width: 100%;
+                border-radius: 0;
+                background-color: transparent;
+                color: white;
+                padding-left: 10px;
+            }
+
+            #submit-btn-container {
+                margin-top: 0.8rem;
+            }
+
+            #reservation_submit_btn {
+                height: 2.5rem;
+                width: 6rem;
+                border-radius: 0;
+                background-color: transparent;
+                color: white;
+                border: 2px solid white;
+            }
+
+            #reservation_submit_btn:hover {
+                cursor: pointer;
+                background-color: white;
+                color: black;
+                border: none;
+            }
+
+            @keyframes heading_animation {
+                to {
+                    stroke-dashoffset: 0;
+                }
+            }
+
+            @media(min-width : 901px) {
+                .nav-li-container {
+                    /* border: 1px solid white; */
+                    display: flex;
+                    flex-direction: row;
+                    list-style: none;
+                    gap: 1rem;
+                    font-size: 0.9rem;
+                    height: 100%;
+                    justify-content: end;
+                    align-items: center;
+                    width: 90%;
+                    margin-right: 1rem;
+                    flex-wrap: wrap;
+                    color: white;
+                }
+
+                .nav-li-container li {
+                    /* border : 1px solid white; */
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 70%;
+                }
+
+
+            }
+
+
+            @media(min-width : 768px) and (max-width : 900px) {
+
+
+                .nav-li-container {
+                    /* border: 1px solid white; */
+                    display: flex;
+                    flex-direction: row;
+                    list-style: none;
+                    gap: 1rem;
+                    font-size: 0.9rem;
+                    height: 100%;
+                    justify-content: end;
+                    align-items: center;
+                    width: 90%;
+                    margin-right: 1rem;
+                    flex-wrap: wrap;
+                    color: white;
+                }
+
+                .nav-li-container li {
+                    /* border : 1px solid white; */
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 70%;
+                }
+
+                .nav-li-container li:hover {
+                    border-bottom: 1px solid white;
+                }
+
+                .nav-li-container :nth-child(7) {
+                    border: 1px solid white;
+                    padding: 0 0.8rem;
+                }
+
+                .reservation-form-container {
+                    width: 80%;
+
+                }
+            }
+
+
+            @media(min-width : 480px) and (max-width : 767px) {
+                body {
+                    overflow-x: hidden;
+                }
+
+                .main-container {
+                    background-size: cover;
+                    background-position: 51%;
+                    /* position : relative; */
+                }
+
+
+                .reservation-form-container {
+                    height: 90%;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+
+                }
+
+                #reservation-form {
+                    /* border : 1px solid white; */
+                    width: 90%;
+                }
+
+                #time-date-persons-container {
+                    gap: 2rem;
+                }
+
+                /*Responsive hamburger menu button*/
+                .menu-dash-btn {
+                    position: absolute;
+                    z-index: 1;
+                    right: 0rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-end;
+                    gap: 0.4rem;
+                    /* border: 1px solid white; */
+                    height: 100%;
+                    width: auto;
+                }
+
+                .menu-dash-btn .dash {
+                    display: block;
+                    width: 2.5rem;
+                    height: 2px;
+                    background-color: white;
+                    margin-right: 1rem;
+                    transition: all 0.4s;
+                }
+
+                .menu-dash-btn :nth-child(2) {
+                    width: 2rem;
+                }
+
+                /*Showing the hidden navlist once the hamburger menu button is clicked*/
+                .nav-li-container {
+                    /* border: 1px solid white; */
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    position: absolute;
+                    height: 100vh;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 3.5rem;
+                    list-style: none;
+                    font-size: 0.9rem;
+                    /* padding-right: 2.5rem; */
+                    background-color: rgb(0, 0, 0, 0.8);
+                    backdrop-filter: blur(0.3rem);
+                    transform: translateX(100%);
+                    margin-top: 0;
+                    z-index: auto;
+                }
+
+                .nav-li-container :nth-child(7) {
+                    border: 1px solid white;
+                    padding: 0.5rem 0.9rem;
+                }
+
+                /*Hiding the navlist once the hamburger close button is clicked*/
+                .nav-li-hide {
+                    transform: translateX(0%);
+                    transition: transform 0.4s ease-out;
+                }
+
+                /*Mutliply sign hamburger close button*/
+                .toggle-btn .dash-1 {
+                    transform: rotate(-45deg) translate(-3px, 3px);
+                }
+
+                .toggle-btn .dash-2 {
+                    display: none;
+                }
+
+                .toggle-btn .dash-3 {
+                    transform: rotate(45deg) translate(-3px, -3px);
+                }
+
+                @supports(backdrop-filter : blur(0.3rem)) {
+                    .nav-li-container {
+                        background-color: rgb(0, 0, 0, 0.5);
+                        backdrop-filter: blur(0.3rem);
+                    }
+                }
+
+            }
+
+
+            @media(max-width : 479px) {
+                body {
+                    overflow-x: hidden;
+                }
+
+                .main-container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: end;
+                }
+
+                /*Responsive hamburger menu button section when the button is not active*/
+                .menu-dash-btn {
+                    position: absolute;
+                    z-index: 1;
+                    right: 0rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-end;
+                    gap: 0.4rem;
+                    /* border: 1px solid white; */
+                    height: 100%;
+                    width: auto;
+                }
+
+                .menu-dash-btn .dash {
+                    display: block;
+                    width: 1.8rem;
+                    height: 2px;
+                    background-color: white;
+                    margin-right: 1rem;
+                    transition: all 0.4s;
+                }
+
+                .menu-dash-btn :nth-child(2) {
+                    width: 1.3rem;
+                }
+
+                /*Changing the hamburger menu button to close button once it is clicked*/
+                .toggle-btn .dash-1 {
+                    transform: rotate(-45deg) translate(-3px, 3px);
+                }
+
+                .toggle-btn .dash-2 {
+                    display: none;
+                }
+
+                .toggle-btn .dash-3 {
+                    transform: rotate(45deg) translate(-3px, -3px);
+                }
+
+                /*Showing the navlist when the navlist when the hamburger menu button is clicked*/
+                .nav-li-container {
+                    /* border: 1px solid white; */
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    position: absolute;
+                    height: 100vh;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 3.5rem;
+                    list-style: none;
+                    font-size: 0.9rem;
+                    background-color: rgb(0, 0, 0, 0.8);
+                    backdrop-filter: blur(0.3rem);
+                    transform: translateX(100%);
+                    margin-top: 0;
+                }
+
+                .nav-li-container :nth-child(7) {
+                    border: 1px solid white;
+                    padding: 0.5rem 0.9rem;
+                }
+
+                /*Hiding the navlist when the hamburger close button is clicked*/
+                .nav-li-hide {
+                    transform: translateX(0%);
+                    transition: transform 0.4s ease-out;
+                }
+
+                .reservation-form-container {
+                    width: 100%;
+                    height: 90%;
+                    display: flex;
+                    align-items: center;
+                    /* border: 1px solid green; */
+                }
+
+                #reservation-form {
+                    width: 90%;
+                }
+
+                #time-date-persons-container {
+                    gap: 1rem;
+                }
+
+                #time-date-persons-container div {
+                    width: auto;
+                }
+
+                input[type="time"],
+                [type="date"],
+                select {
+                    width: 4rem;
+                }
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="main-container">
+            <nav id="navbar" class="navbar">
+                <div class="navbar-logo-container">
+                    <h3 class="navbar-logo">ABHOGI</h3>
+                </div>
+
+                <div class="menu-dash-btn">
+                    <span class="dash dash-1"></span>
+                    <span class="dash dash-2"></span>
+                    <span class="dash dash-3"></span>
+                </div>
+
+
+                <ul class="nav-li-container">
+                    <li><a href="landingPage.html">HOME</a></li>
+                    <li><a href="#menu">MENU</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#location">LOCATION</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="cart_page.html">CART</a></li>
+                    <li id="reservation-btn"><a href="">RESERVATION</a></li>
+                </ul>
+            </nav>
+            <div class="reservation-form-container">
+                <div id="reservation-header">
+                    <svg width="234" height="29" viewBox="0 0 234 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="path-1-outside-1_16_5" maskUnits="userSpaceOnUse" x="0.285156" y="0.0546875"
+                            width="234" height="29" fill="black">
+                            <rect fill="white" x="0.285156" y="0.0546875" width="234" height="29" />
+                            <path
+                                d="M1.28516 1.40625H10.8301C12.7871 1.40625 14.4688 1.69922 15.875 2.28516C17.293 2.87109 18.3828 3.73828 19.1445 4.88672C19.9062 6.03516 20.2871 7.44727 20.2871 9.12305C20.2871 10.4941 20.0527 11.6719 19.584 12.6562C19.127 13.6289 18.4766 14.4434 17.6328 15.0996C16.8008 15.7441 15.8223 16.2598 14.6973 16.6465L13.0273 17.5254H4.73047L4.69531 13.4121H10.8652C11.791 13.4121 12.5586 13.248 13.168 12.9199C13.7773 12.5918 14.2344 12.1348 14.5391 11.5488C14.8555 10.9629 15.0137 10.2832 15.0137 9.50977C15.0137 8.68945 14.8613 7.98047 14.5566 7.38281C14.252 6.78516 13.7891 6.32812 13.168 6.01172C12.5469 5.69531 11.7676 5.53711 10.8301 5.53711H6.55859V27H1.28516V1.40625ZM15.5938 27L9.75781 15.5918L15.3301 15.5566L21.2363 26.7539V27H15.5938Z" />
+                            <path
+                                d="M41.5215 22.8867V27H27.8984V22.8867H41.5215ZM29.6211 1.40625V27H24.3477V1.40625H29.6211ZM39.7461 11.8301V15.8379H27.8984V11.8301H39.7461ZM41.5039 1.40625V5.53711H27.8984V1.40625H41.5039Z" />
+                            <path
+                                d="M57.9219 20.3027C57.9219 19.8457 57.8516 19.4355 57.7109 19.0723C57.582 18.6973 57.3359 18.3574 56.9727 18.0527C56.6094 17.7363 56.0996 17.4258 55.4434 17.1211C54.7871 16.8164 53.9375 16.5 52.8945 16.1719C51.7344 15.7969 50.6328 15.375 49.5898 14.9062C48.5586 14.4375 47.6445 13.8926 46.8477 13.2715C46.0625 12.6387 45.4414 11.9062 44.9844 11.0742C44.5391 10.2422 44.3164 9.27539 44.3164 8.17383C44.3164 7.10742 44.5508 6.14062 45.0195 5.27344C45.4883 4.39453 46.1445 3.64453 46.9883 3.02344C47.832 2.39062 48.8281 1.9043 49.9766 1.56445C51.1367 1.22461 52.4082 1.05469 53.791 1.05469C55.6777 1.05469 57.3242 1.39453 58.7305 2.07422C60.1367 2.75391 61.2266 3.68555 62 4.86914C62.7852 6.05273 63.1777 7.40625 63.1777 8.92969H57.9395C57.9395 8.17969 57.7812 7.52344 57.4648 6.96094C57.1602 6.38672 56.6914 5.93555 56.0586 5.60742C55.4375 5.2793 54.6523 5.11523 53.7031 5.11523C52.7891 5.11523 52.0273 5.25586 51.418 5.53711C50.8086 5.80664 50.3516 6.17578 50.0469 6.64453C49.7422 7.10156 49.5898 7.61719 49.5898 8.19141C49.5898 8.625 49.6953 9.01758 49.9062 9.36914C50.1289 9.7207 50.457 10.0488 50.8906 10.3535C51.3242 10.6582 51.8574 10.9453 52.4902 11.2148C53.123 11.4844 53.8555 11.748 54.6875 12.0059C56.082 12.4277 57.3066 12.9023 58.3613 13.4297C59.4277 13.957 60.3184 14.5488 61.0332 15.2051C61.748 15.8613 62.2871 16.6055 62.6504 17.4375C63.0137 18.2695 63.1953 19.2129 63.1953 20.2676C63.1953 21.3809 62.9785 22.377 62.5449 23.2559C62.1113 24.1348 61.4844 24.8789 60.6641 25.4883C59.8438 26.0977 58.8652 26.5605 57.7285 26.877C56.5918 27.1934 55.3203 27.3516 53.9141 27.3516C52.6484 27.3516 51.4004 27.1875 50.1699 26.8594C48.9395 26.5195 47.8203 26.0098 46.8125 25.3301C45.8164 24.6504 45.0195 23.7832 44.4219 22.7285C43.8242 21.6738 43.5254 20.4258 43.5254 18.9844H48.8164C48.8164 19.7812 48.9395 20.4551 49.1855 21.0059C49.4316 21.5566 49.7773 22.002 50.2227 22.3418C50.6797 22.6816 51.2188 22.9277 51.8398 23.0801C52.4727 23.2324 53.1641 23.3086 53.9141 23.3086C54.8281 23.3086 55.5781 23.1797 56.1641 22.9219C56.7617 22.6641 57.2012 22.3066 57.4824 21.8496C57.7754 21.3926 57.9219 20.877 57.9219 20.3027Z" />
+                            <path
+                                d="M83.9551 22.8867V27H70.332V22.8867H83.9551ZM72.0547 1.40625V27H66.7812V1.40625H72.0547ZM82.1797 11.8301V15.8379H70.332V11.8301H82.1797ZM83.9375 1.40625V5.53711H70.332V1.40625H83.9375Z" />
+                            <path
+                                d="M87.0312 1.40625H96.5762C98.5332 1.40625 100.215 1.69922 101.621 2.28516C103.039 2.87109 104.129 3.73828 104.891 4.88672C105.652 6.03516 106.033 7.44727 106.033 9.12305C106.033 10.4941 105.799 11.6719 105.33 12.6562C104.873 13.6289 104.223 14.4434 103.379 15.0996C102.547 15.7441 101.568 16.2598 100.443 16.6465L98.7734 17.5254H90.4766L90.4414 13.4121H96.6113C97.5371 13.4121 98.3047 13.248 98.9141 12.9199C99.5234 12.5918 99.9805 12.1348 100.285 11.5488C100.602 10.9629 100.76 10.2832 100.76 9.50977C100.76 8.68945 100.607 7.98047 100.303 7.38281C99.998 6.78516 99.5352 6.32812 98.9141 6.01172C98.293 5.69531 97.5137 5.53711 96.5762 5.53711H92.3047V27H87.0312V1.40625ZM101.34 27L95.5039 15.5918L101.076 15.5566L106.982 26.7539V27H101.34Z" />
+                            <path
+                                d="M118.971 21.6562L125 1.40625H130.871L121.959 27H118.092L118.971 21.6562ZM113.416 1.40625L119.428 21.6562L120.342 27H116.439L107.58 1.40625H113.416Z" />
+                            <path
+                                d="M142.332 5.7832L135.371 27H129.764L139.273 1.40625H142.842L142.332 5.7832ZM148.115 27L141.137 5.7832L140.574 1.40625H144.178L153.74 27H148.115ZM147.799 17.4727V21.6035H134.281V17.4727H147.799Z" />
+                            <path
+                                d="M165.377 1.40625V27H160.121V1.40625H165.377ZM173.252 1.40625V5.53711H152.369V1.40625H173.252Z" />
+                            <path d="M181.865 1.40625V27H176.609V1.40625H181.865Z" />
+                            <path
+                                d="M207.828 13.6055V14.8184C207.828 16.7637 207.564 18.5098 207.037 20.0566C206.51 21.6035 205.766 22.9219 204.805 24.0117C203.844 25.0898 202.695 25.916 201.359 26.4902C200.035 27.0645 198.564 27.3516 196.947 27.3516C195.342 27.3516 193.871 27.0645 192.535 26.4902C191.211 25.916 190.062 25.0898 189.09 24.0117C188.117 22.9219 187.361 21.6035 186.822 20.0566C186.295 18.5098 186.031 16.7637 186.031 14.8184V13.6055C186.031 11.6484 186.295 9.90234 186.822 8.36719C187.35 6.82031 188.094 5.50195 189.055 4.41211C190.027 3.32227 191.176 2.49023 192.5 1.91602C193.836 1.3418 195.307 1.05469 196.912 1.05469C198.529 1.05469 200 1.3418 201.324 1.91602C202.66 2.49023 203.809 3.32227 204.77 4.41211C205.742 5.50195 206.492 6.82031 207.02 8.36719C207.559 9.90234 207.828 11.6484 207.828 13.6055ZM202.502 14.8184V13.5703C202.502 12.2109 202.379 11.0156 202.133 9.98438C201.887 8.95312 201.523 8.08594 201.043 7.38281C200.562 6.67969 199.977 6.15234 199.285 5.80078C198.594 5.4375 197.803 5.25586 196.912 5.25586C196.021 5.25586 195.23 5.4375 194.539 5.80078C193.859 6.15234 193.279 6.67969 192.799 7.38281C192.33 8.08594 191.973 8.95312 191.727 9.98438C191.48 11.0156 191.357 12.2109 191.357 13.5703V14.8184C191.357 16.166 191.48 17.3613 191.727 18.4043C191.973 19.4355 192.336 20.3086 192.816 21.0234C193.297 21.7266 193.883 22.2598 194.574 22.623C195.266 22.9863 196.057 23.168 196.947 23.168C197.838 23.168 198.629 22.9863 199.32 22.623C200.012 22.2598 200.592 21.7266 201.061 21.0234C201.529 20.3086 201.887 19.4355 202.133 18.4043C202.379 17.3613 202.502 16.166 202.502 14.8184Z" />
+                            <path
+                                d="M232.455 1.40625V27H227.182L216.898 9.84375V27H211.625V1.40625H216.898L227.199 18.5801V1.40625H232.455Z" />
+                        </mask>
+                        <path id="reservation-letter-one"
+                            d="M1.28516 1.40625H10.8301C12.7871 1.40625 14.4688 1.69922 15.875 2.28516C17.293 2.87109 18.3828 3.73828 19.1445 4.88672C19.9062 6.03516 20.2871 7.44727 20.2871 9.12305C20.2871 10.4941 20.0527 11.6719 19.584 12.6562C19.127 13.6289 18.4766 14.4434 17.6328 15.0996C16.8008 15.7441 15.8223 16.2598 14.6973 16.6465L13.0273 17.5254H4.73047L4.69531 13.4121H10.8652C11.791 13.4121 12.5586 13.248 13.168 12.9199C13.7773 12.5918 14.2344 12.1348 14.5391 11.5488C14.8555 10.9629 15.0137 10.2832 15.0137 9.50977C15.0137 8.68945 14.8613 7.98047 14.5566 7.38281C14.252 6.78516 13.7891 6.32812 13.168 6.01172C12.5469 5.69531 11.7676 5.53711 10.8301 5.53711H6.55859V27H1.28516V1.40625ZM15.5938 27L9.75781 15.5918L15.3301 15.5566L21.2363 26.7539V27H15.5938Z"
+                            stroke="white" stroke-width="2" mask="url(#path-1-outside-1_16_5)" />
+                        <path id="reservation-letter-two"
+                            d="M41.5215 22.8867V27H27.8984V22.8867H41.5215ZM29.6211 1.40625V27H24.3477V1.40625H29.6211ZM39.7461 11.8301V15.8379H27.8984V11.8301H39.7461ZM41.5039 1.40625V5.53711H27.8984V1.40625H41.5039Z"
+                            stroke="white" stroke-width="2" mask="url(#path-1-outside-1_16_5)" />
+                        <path id="reservation-letter-three"
+                            d="M57.9219 20.3027C57.9219 19.8457 57.8516 19.4355 57.7109 19.0723C57.582 18.6973 57.3359 18.3574 56.9727 18.0527C56.6094 17.7363 56.0996 17.4258 55.4434 17.1211C54.7871 16.8164 53.9375 16.5 52.8945 16.1719C51.7344 15.7969 50.6328 15.375 49.5898 14.9062C48.5586 14.4375 47.6445 13.8926 46.8477 13.2715C46.0625 12.6387 45.4414 11.9062 44.9844 11.0742C44.5391 10.2422 44.3164 9.27539 44.3164 8.17383C44.3164 7.10742 44.5508 6.14062 45.0195 5.27344C45.4883 4.39453 46.1445 3.64453 46.9883 3.02344C47.832 2.39062 48.8281 1.9043 49.9766 1.56445C51.1367 1.22461 52.4082 1.05469 53.791 1.05469C55.6777 1.05469 57.3242 1.39453 58.7305 2.07422C60.1367 2.75391 61.2266 3.68555 62 4.86914C62.7852 6.05273 63.1777 7.40625 63.1777 8.92969H57.9395C57.9395 8.17969 57.7812 7.52344 57.4648 6.96094C57.1602 6.38672 56.6914 5.93555 56.0586 5.60742C55.4375 5.2793 54.6523 5.11523 53.7031 5.11523C52.7891 5.11523 52.0273 5.25586 51.418 5.53711C50.8086 5.80664 50.3516 6.17578 50.0469 6.64453C49.7422 7.10156 49.5898 7.61719 49.5898 8.19141C49.5898 8.625 49.6953 9.01758 49.9062 9.36914C50.1289 9.7207 50.457 10.0488 50.8906 10.3535C51.3242 10.6582 51.8574 10.9453 52.4902 11.2148C53.123 11.4844 53.8555 11.748 54.6875 12.0059C56.082 12.4277 57.3066 12.9023 58.3613 13.4297C59.4277 13.957 60.3184 14.5488 61.0332 15.2051C61.748 15.8613 62.2871 16.6055 62.6504 17.4375C63.0137 18.2695 63.1953 19.2129 63.1953 20.2676C63.1953 21.3809 62.9785 22.377 62.5449 23.2559C62.1113 24.1348 61.4844 24.8789 60.6641 25.4883C59.8438 26.0977 58.8652 26.5605 57.7285 26.877C56.5918 27.1934 55.3203 27.3516 53.9141 27.3516C52.6484 27.3516 51.4004 27.1875 50.1699 26.8594C48.9395 26.5195 47.8203 26.0098 46.8125 25.3301C45.8164 24.6504 45.0195 23.7832 44.4219 22.7285C43.8242 21.6738 43.5254 20.4258 43.5254 18.9844H48.8164C48.8164 19.7812 48.9395 20.4551 49.1855 21.0059C49.4316 21.5566 49.7773 22.002 50.2227 22.3418C50.6797 22.6816 51.2188 22.9277 51.8398 23.0801C52.4727 23.2324 53.1641 23.3086 53.9141 23.3086C54.8281 23.3086 55.5781 23.1797 56.1641 22.9219C56.7617 22.6641 57.2012 22.3066 57.4824 21.8496C57.7754 21.3926 57.9219 20.877 57.9219 20.3027Z"
+                            stroke="white" stroke-width="2" mask="url(#path-1-outside-1_16_5)" />
+                        <path id="reservation-letter-four"
+                            d="M83.9551 22.8867V27H70.332V22.8867H83.9551ZM72.0547 1.40625V27H66.7812V1.40625H72.0547ZM82.1797 11.8301V15.8379H70.332V11.8301H82.1797ZM83.9375 1.40625V5.53711H70.332V1.40625H83.9375Z"
+                            stroke="white" stroke-width="2" mask="url(#path-1-outside-1_16_5)" />
+                        <path id="reservation-letter-five"
+                            d="M87.0312 1.40625H96.5762C98.5332 1.40625 100.215 1.69922 101.621 2.28516C103.039 2.87109 104.129 3.73828 104.891 4.88672C105.652 6.03516 106.033 7.44727 106.033 9.12305C106.033 10.4941 105.799 11.6719 105.33 12.6562C104.873 13.6289 104.223 14.4434 103.379 15.0996C102.547 15.7441 101.568 16.2598 100.443 16.6465L98.7734 17.5254H90.4766L90.4414 13.4121H96.6113C97.5371 13.4121 98.3047 13.248 98.9141 12.9199C99.5234 12.5918 99.9805 12.1348 100.285 11.5488C100.602 10.9629 100.76 10.2832 100.76 9.50977C100.76 8.68945 100.607 7.98047 100.303 7.38281C99.998 6.78516 99.5352 6.32812 98.9141 6.01172C98.293 5.69531 97.5137 5.53711 96.5762 5.53711H92.3047V27H87.0312V1.40625ZM101.34 27L95.5039 15.5918L101.076 15.5566L106.982 26.7539V27H101.34Z"
+                            stroke="white" stroke-width="2" mask="url(#path-1-outside-1_16_5)" />
+                        <path id="reservation-letter-six"
+                            d="M118.971 21.6562L125 1.40625H130.871L121.959 27H118.092L118.971 21.6562ZM113.416 1.40625L119.428 21.6562L120.342 27H116.439L107.58 1.40625H113.416Z"
+                            stroke="white" stroke-width="2" mask="url(#path-1-outside-1_16_5)" />
+                        <path id="reservation-letter-seven"
+                            d="M142.332 5.7832L135.371 27H129.764L139.273 1.40625H142.842L142.332 5.7832ZM148.115 27L141.137 5.7832L140.574 1.40625H144.178L153.74 27H148.115ZM147.799 17.4727V21.6035H134.281V17.4727H147.799Z"
+                            stroke="white" stroke-width="2" mask="url(#path-1-outside-1_16_5)" />
+                        <path id="reservation-letter-eight"
+                            d="M165.377 1.40625V27H160.121V1.40625H165.377ZM173.252 1.40625V5.53711H152.369V1.40625H173.252Z"
+                            stroke="white" stroke-width="2" mask="url(#path-1-outside-1_16_5)" />
+                        <path id="reservation-letter-nine" d="M181.865 1.40625V27H176.609V1.40625H181.865Z"
+                            stroke="white" stroke-width="2" mask="url(#path-1-outside-1_16_5)" />
+                        <path id="reservation-letter-ten"
+                            d="M207.828 13.6055V14.8184C207.828 16.7637 207.564 18.5098 207.037 20.0566C206.51 21.6035 205.766 22.9219 204.805 24.0117C203.844 25.0898 202.695 25.916 201.359 26.4902C200.035 27.0645 198.564 27.3516 196.947 27.3516C195.342 27.3516 193.871 27.0645 192.535 26.4902C191.211 25.916 190.062 25.0898 189.09 24.0117C188.117 22.9219 187.361 21.6035 186.822 20.0566C186.295 18.5098 186.031 16.7637 186.031 14.8184V13.6055C186.031 11.6484 186.295 9.90234 186.822 8.36719C187.35 6.82031 188.094 5.50195 189.055 4.41211C190.027 3.32227 191.176 2.49023 192.5 1.91602C193.836 1.3418 195.307 1.05469 196.912 1.05469C198.529 1.05469 200 1.3418 201.324 1.91602C202.66 2.49023 203.809 3.32227 204.77 4.41211C205.742 5.50195 206.492 6.82031 207.02 8.36719C207.559 9.90234 207.828 11.6484 207.828 13.6055ZM202.502 14.8184V13.5703C202.502 12.2109 202.379 11.0156 202.133 9.98438C201.887 8.95312 201.523 8.08594 201.043 7.38281C200.562 6.67969 199.977 6.15234 199.285 5.80078C198.594 5.4375 197.803 5.25586 196.912 5.25586C196.021 5.25586 195.23 5.4375 194.539 5.80078C193.859 6.15234 193.279 6.67969 192.799 7.38281C192.33 8.08594 191.973 8.95312 191.727 9.98438C191.48 11.0156 191.357 12.2109 191.357 13.5703V14.8184C191.357 16.166 191.48 17.3613 191.727 18.4043C191.973 19.4355 192.336 20.3086 192.816 21.0234C193.297 21.7266 193.883 22.2598 194.574 22.623C195.266 22.9863 196.057 23.168 196.947 23.168C197.838 23.168 198.629 22.9863 199.32 22.623C200.012 22.2598 200.592 21.7266 201.061 21.0234C201.529 20.3086 201.887 19.4355 202.133 18.4043C202.379 17.3613 202.502 16.166 202.502 14.8184Z"
+                            stroke="white" stroke-width="2" mask="url(#path-1-outside-1_16_5)" />
+                        <path id="reservation-letter-eleven"
+                            d="M232.455 1.40625V27H227.182L216.898 9.84375V27H211.625V1.40625H216.898L227.199 18.5801V1.40625H232.455Z"
+                            stroke="white" stroke-width="2" mask="url(#path-1-outside-1_16_5)" />
+                    </svg>
+
+                </div>
+
+                <form id="reservation-form" action="">
+                    <div id="fullName-container" class="input-container">
+                        <input type="text" id="fullName" name="fullName" required>
+                        <span>Full Name</span>
+                    </div>
+
+                    <div class="input-container">
+                        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+                        <span>Phone Number</span>
+                    </div>
+
+                    <div class="input-container">
+                        <input type="email" name="email" name="email" required>
+                        <span>Email Address</span>
+                    </div>
+
+                    <div id="time-date-persons-container">
+                        <div>
+
+                            <input type="time" id="setTime" name="setTime">
+                        </div>
+                        <div>
+
+                            <input type="date" id="setDate" name="setDate">
+                        </div>
+                        <div>
+                            <select name="persons" id="persons">
+                                <option value="">No. of person</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 Persons</option>
+                                <option value="3">3 Persons</option>
+                                <option value="4">4 Persons</option>
+                                <option value="5+">5+ Persons</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <textarea name="comment" id="comment" cols="30" rows="5"
+                            placeholder="Any special requests"></textarea>
+                    </div>
+
+                    <div id="submit-btn-container">
+                        <input type="submit" id="reservation_submit_btn" name="rerservation_submit_btn" value="Reserve">
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+
+        <script>
+            //Navbar menu slide in on click
+            function nav_hide() {
+                const menu_hamburger_btn = document.querySelector('.menu-dash-btn');
+                const nav_menu_list = document.querySelector('.nav-li-container');
+
+                menu_hamburger_btn.addEventListener('click', () => {
+                    nav_menu_list.classList.toggle('nav-li-hide');
+                    menu_hamburger_btn.classList.toggle('toggle-btn');
+                })
+            }
+
+            nav_hide();
+        </script>
+    </body>
+
+</html>
